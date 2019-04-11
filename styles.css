@@ -1,0 +1,52 @@
+/* 
+the perspective field gives rise to the 3D effect 
+the higher the value the more subtle the 3D effect
+lower value makes it more pronounced
+the origin - is the virtual camera looking onto the scene
+*/
+
+.stage {
+    width: 300px; 
+    height: 300px;
+    margin: 100px auto;
+    -webkit-perspective: 1600px;
+    -webkit-perspective-origin: 40% -240px;
+  }
+
+/* 
+
+*/
+  figure {
+    display: flex; position: absolute;
+    width: 200px; height: 200px;
+    background-color: #60c2ef;
+  }
+
+.cube { -webkit-transform-style: preserve-3d; }
+figure { -webkit-transform-origin: 50% 50% 0; }
+
+.front { -webkit-transform: translateZ(150px);
+    background-color: #FF0042 
+}
+.back { -webkit-transform: rotateY(180deg) translateZ(150px); 
+    background-color: #00FF00
+}
+.top { -webkit-transform: rotateX(90deg) translateZ(150px);
+    background-color: #0000FF 
+}
+.bottom { -webkit-transform: rotateX(-90deg) translateZ(150px);
+    background-color: #FF00FF 
+}
+.left { -webkit-transform: rotateY(-90deg) translateZ(150px); 
+    background-color: #FFAAAA
+}
+.right { -webkit-transform: rotateY(90deg) translateZ(150px); 
+    background-color: #888888
+}
+
+@-webkit-keyframes rotate {
+    0% { -webkit-transform: rotateY(0); }
+    100% { -webkit-transform: rotateY(360deg); }
+  }
+
+  .cube { -webkit-animation: rotate 10s infinite linear; }
